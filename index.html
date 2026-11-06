@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#101010" />
+  <meta name="description" content="Abhinandan Tiwari — Graphic Designer, Video Editor and Website Creator." />
+  <title>Abhinandan Tiwari — Creative Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #101010; --panel: #191919; --panel2: #202020; --text: #f1f0ec;
+      --muted: #a5a39e; --gold: #c6a15b; --line: rgba(255,255,255,.12);
+      --max: 1160px; --ease: cubic-bezier(.22,1,.36,1);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--bg); }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: "DM Sans", sans-serif; overflow-x: hidden; }
+    body::before { content:""; position:fixed; inset:0; pointer-events:none; z-index:5; opacity:.055;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.3'/%3E%3C/svg%3E"); }
+    a { color:inherit; text-decoration:none; }
+    button { font:inherit; }
+    .wrap { width:min(var(--max), calc(100% - 48px)); margin:auto; }
+    .gold { color:var(--gold); }
+    .eyebrow { color:var(--gold); text-transform:uppercase; letter-spacing:.18em; font-size:11px; font-weight:700; }
+    .topbar { position:fixed; top:0; left:0; width:100%; z-index:20; border-bottom:1px solid transparent; transition:.35s; }
+    .topbar.scrolled { background:rgba(16,16,16,.82); backdrop-filter:blur(16px); border-color:var(--line); }
+    .nav { height:76px; display:flex; align-items:center; justify-content:space-between; }
+    .brand { font-family:Manrope,sans-serif; font-weight:800; letter-spacing:-.06em; font-size:19px; }
+    .brand span { color:var(--gold); }
+    .navlinks { display:flex; align-items:center; gap:30px; color:#c8c6c0; font-size:13px; }
+    .navlinks a { transition:color .2s; } .navlinks a:hover { color:var(--gold); }
+    .nav-cta { border:1px solid rgba(198,161,91,.55); color:var(--gold); padding:11px 16px; border-radius:99px; font-size:12px; }
+    .menu-btn { display:none; background:none; color:var(--text); border:1px solid var(--line); border-radius:50%; width:42px; height:42px; }
+    .hero { min-height:100svh; display:flex; align-items:center; position:relative; padding:140px 0 90px; isolation:isolate; }
+    .hero::before { content:""; position:absolute; z-index:-1; width:min(62vw,760px); aspect-ratio:1; right:-10%; top:8%; border-radius:50%;
+      background:radial-gradient(circle, rgba(198,161,91,.16), rgba(198,161,91,.045) 38%, transparent 68%); filter:blur(10px); }
+    .hero-grid { display:grid; grid-template-columns:1.25fr .75fr; align-items:center; gap:40px; }
+    .hero-kicker { display:flex; align-items:center; gap:12px; margin-bottom:25px; }
+    .dot { width:7px; height:7px; border-radius:50%; background:var(--gold); box-shadow:0 0 18px var(--gold); }
+    h1,h2,h3,p { margin-top:0; }
+    h1 { font-family:Manrope,sans-serif; font-size:clamp(54px,8.5vw,112px); line-height:.94; letter-spacing:-.085em; margin:0 0 28px; font-weight:700; }
+    h1 .outline { color:transparent; -webkit-text-stroke:1px rgba(241,240,236,.7); }
+    .hero-copy { color:var(--muted); max-width:520px; font-size:16px; line-height:1.8; }
+    .hero-actions { display:flex; gap:12px; flex-wrap:wrap; margin-top:32px; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; gap:12px; padding:15px 20px; border-radius:99px; font-size:13px; font-weight:700; transition:transform .3s var(--ease), background .3s, border .3s; }
+    .btn:hover { transform:translateY(-4px); }
+    .btn-primary { background:var(--gold); color:#17130c; }
+    .btn-secondary { border:1px solid var(--line); color:var(--text); }
+    .hero-art { min-height:450px; position:relative; display:grid; place-items:center; }
+    .orbit { width:min(100%,420px); aspect-ratio:1; border:1px solid rgba(198,161,91,.28); border-radius:50%; position:absolute; animation:spin 28s linear infinite; }
+    .orbit::before,.orbit::after { content:""; position:absolute; border:1px solid rgba(255,255,255,.09); border-radius:50%; inset:12%; }
+    .orbit::after { inset:26%; border-color:rgba(198,161,91,.18); }
+    .orbit-point { position:absolute; width:9px; height:9px; border-radius:50%; background:var(--gold); top:14%; left:18%; box-shadow:0 0 20px var(--gold); }
+    .monogram { width:230px; height:290px; border-radius:48% 48% 18px 18px; background:linear-gradient(145deg,#33312d,#171717 58%,#0d0d0d); border:1px solid rgba(198,161,91,.35); display:grid; place-items:center; box-shadow:0 30px 90px rgba(0,0,0,.5), inset 0 1px rgba(255,255,255,.13); transform:rotate(5deg); }
+    .monogram strong { font-family:Manrope,sans-serif; font-size:82px; letter-spacing:-.12em; color:var(--gold); text-shadow:0 0 45px rgba(198,161,91,.25); }
+    .art-label { position:absolute; bottom:10%; right:0; background:rgba(25,25,25,.8); border:1px solid var(--line); padding:14px 18px; border-radius:12px; backdrop-filter:blur(12px); font-size:12px; color:var(--muted); }
+    .art-label b { display:block; color:var(--text); font-size:14px; margin-bottom:4px; }
+    .scroll-hint { position:absolute; bottom:32px; left:50%; transform:translateX(-50%); color:#777; font-size:10px; text-transform:uppercase; letter-spacing:.2em; display:flex; align-items:center; gap:12px; }
+    .scroll-hint::before { content:""; width:34px; height:1px; background:var(--gold); }
+    section { padding:120px 0; position:relative; }
+    .section-head { display:flex; justify-content:space-between; align-items:end; gap:30px; margin-bottom:48px; }
+    h2 { font-family:Manrope,sans-serif; font-size:clamp(38px,6vw,68px); letter-spacing:-.075em; line-height:1; margin:14px 0 0; }
+    .section-intro { max-width:360px; color:var(--muted); line-height:1.75; font-size:14px; margin:0; }
+    .about-grid { display:grid; grid-template-columns:.85fr 1.15fr; gap:80px; align-items:start; }
+    .about-statement { font-family:Manrope,sans-serif; font-size:clamp(28px,4vw,47px); line-height:1.16; letter-spacing:-.06em; }
+    .about-statement em { color:var(--gold); font-style:normal; }
+    .about-text { color:var(--muted); line-height:1.9; font-size:15px; max-width:620px; }
+    .tool-list { display:flex; flex-wrap:wrap; gap:9px; margin-top:28px; }
+    .chip { padding:10px 14px; border:1px solid var(--line); border-radius:99px; color:#d5d2ca; font-size:12px; background:rgba(255,255,255,.025); }
+    .services { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+    .service { padding:30px; min-height:250px; background:linear-gradient(145deg,#202020,#151515); border:1px solid var(--line); border-radius:18px; position:relative; overflow:hidden; transition:transform .4s var(--ease), border-color .4s; }
+    .service:hover { transform:translateY(-8px); border-color:rgba(198,161,91,.5); }
+    .service-num { color:var(--gold); font-size:11px; letter-spacing:.15em; }
+    .service h3 { font:600 25px Manrope,sans-serif; letter-spacing:-.05em; margin:52px 0 12px; }
+    .service p { color:var(--muted); line-height:1.7; font-size:13px; margin:0; }
+    .service-icon { position:absolute; right:25px; top:25px; color:rgba(198,161,91,.65); font-size:26px; }
+    .work-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+    .project { border:1px solid var(--line); border-radius:18px; overflow:hidden; background:var(--panel); }
+    .project-visual { min-height:300px; position:relative; overflow:hidden; display:grid; place-items:center; }
+    .project-visual::after { content:""; position:absolute; inset:0; background:linear-gradient(0deg,rgba(0,0,0,.35),transparent 60%); }
+    .visual-one { background:radial-gradient(circle at 65% 35%,#8b6b37 0,transparent 28%),linear-gradient(135deg,#29231a,#111 65%); }
+    .visual-two { background:radial-gradient(circle at 35% 50%,#5d5d5d 0,transparent 30%),linear-gradient(135deg,#282828,#101010); }
+    .visual-three { background:radial-gradient(circle at 70% 40%,#55452b 0,transparent 27%),linear-gradient(135deg,#171717,#35302a); }
+    .visual-four { background:radial-gradient(circle at 50% 45%,#555 0,transparent 35%),linear-gradient(135deg,#101010,#292929); }
+    .visual-word { position:relative; z-index:1; font:800 clamp(35px,6vw,70px) Manrope,sans-serif; letter-spacing:-.09em; text-align:center; text-shadow:0 8px 35px rgba(0,0,0,.5); }
+    .visual-word small { display:block; font:600 10px "DM Sans"; letter-spacing:.35em; color:var(--gold); margin-top:10px; }
+    .project-info { padding:20px 22px 22px; display:flex; justify-content:space-between; align-items:center; gap:20px; }
+    .project-info h3 { margin:0 0 6px; font:600 17px Manrope,sans-serif; }
+    .project-info p { margin:0; color:var(--muted); font-size:12px; }
+    .project-arrow { width:38px; height:38px; border:1px solid var(--line); border-radius:50%; display:grid; place-items:center; color:var(--gold); flex-shrink:0; }
+    .note { color:#89867f; font-size:11px; line-height:1.6; margin-top:18px; }
+    .process-grid { display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+    .process { padding:28px 22px 30px 0; border-right:1px solid var(--line); }
+    .process:not(:first-child) { padding-left:22px; }
+    .process:last-child { border-right:0; }
+    .process span { color:var(--gold); font-size:11px; }
+    .process h3 { font:600 18px Manrope,sans-serif; margin:28px 0 9px; }
+    .process p { color:var(--muted); font-size:12px; line-height:1.7; margin:0; }
+    .contact-panel { padding:clamp(30px,6vw,70px); border:1px solid rgba(198,161,91,.32); border-radius:24px; background:radial-gradient(circle at 85% 20%,rgba(198,161,91,.12),transparent 35%),linear-gradient(135deg,#1d1d1d,#131313); }
+    .contact-panel h2 { max-width:800px; margin:18px 0 24px; }
+    .contact-bottom { display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap; }
+    .contact-bottom p { color:var(--muted); margin:0; font-size:13px; }
+    footer { padding:28px 0 40px; border-top:1px solid var(--line); color:#85827c; font-size:11px; }
+    .footer-inner { display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; }
+    .reveal { opacity:0; transform:translateY(38px); transition:opacity .9s var(--ease), transform .9s var(--ease); }
+    .reveal.visible { opacity:1; transform:translateY(0); }
+    .reveal-left { opacity:0; transform:translateX(-35px); transition:opacity .9s var(--ease), transform .9s var(--ease); }
+    .reveal-left.visible { opacity:1; transform:translateX(0); }
+    .progress { position:fixed; top:0; left:0; height:2px; width:0; background:var(--gold); z-index:50; box-shadow:0 0 12px var(--gold); }
+    @keyframes spin { to { transform:rotate(360deg); } }
+    @media (prefers-reduced-motion: reduce) { *,*::before,*::after { animation-duration:.01ms !important; transition-duration:.01ms !important; scroll-behavior:auto !important; } }
+    @media (max-width:800px) {
+      .wrap { width:min(100% - 36px, var(--max)); }
+      .nav { height:66px; } .menu-btn { display:block; }
+      .navlinks { display:none; position:absolute; top:66px; left:18px; right:18px; padding:20px; border:1px solid var(--line); border-radius:16px; background:#171717; flex-direction:column; align-items:stretch; gap:18px; }
+      .navlinks.open { display:flex; } .nav-cta { text-align:center; }
+      .hero { padding:120px 0 85px; min-height:auto; }
+      .hero-grid { grid-template-columns:1fr; gap:10px; }
+      .hero-art { min-height:330px; } .monogram { width:170px; height:220px; } .monogram strong { font-size:65px; }
+      .orbit { width:300px; } .art-label { right:3%; bottom:3%; }
+      section { padding:85px 0; }
+      .section-head { display:block; margin-bottom:32px; } .section-intro { margin-top:20px; }
+      .about-grid { grid-template-columns:1fr; gap:24px; }
+      .services { grid-template-columns:1fr; } .service { min-height:210px; }
+      .service h3 { margin-top:35px; }
+      .work-grid { grid-template-columns:1fr; } .project-visual { min-height:240px; }
+      .process-grid { grid-template-columns:1fr 1fr; }
+      .process:nth-child(2) { border-right:0; } .process:nth-child(3),.process:nth-child(4) { border-top:1px solid var(--line); }
+      .process:nth-child(3) { padding-left:0; }
+    }
+    @media (max-width:420px) { h1 { font-size:53px; } .hero-copy { font-size:14px; } .hero-art { min-height:290px; } .orbit { width:260px; } .process-grid { grid-template-columns:1fr; } .process,.process:not(:first-child) { padding:22px 0; border-right:0; border-top:1px solid var(--line); } .process:first-child { border-top:0; } }
+  </style>
+</head>
+<body>
+  <div class="progress" id="progress"></div>
+  <header class="topbar" id="topbar">
+    <div class="wrap nav">
+      <a class="brand" href="#home">AT<span>.</span></a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open navigation">☰</button>
+      <nav class="navlinks" id="navlinks">
+        <a href="#about">About</a><a href="#services">Services</a><a href="#work">Selected work</a><a href="#process">Process</a>
+        <a class="nav-cta" href="#contact">Let's talk ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="hero-kicker reveal"><span class="dot"></span><span class="eyebrow">Independent creative portfolio</span></div>
+          <h1 class="reveal">ABHINANDAN<br><span class="outline">TIWARI.</span></h1>
+          <p class="hero-copy reveal">I create visual identities, engaging edits and modern websites — bringing ideas together through thoughtful design and digital craft.</p>
+          <div class="hero-actions reveal">
+            <a class="btn btn-primary" href="#work">Explore my work <span>↗</span></a>
+            <a class="btn btn-secondary" href="#contact">Get in touch</a>
+          </div>
+        </div>
+        <div class="hero-art reveal">
+          <div class="orbit"><span class="orbit-point"></span></div>
+          <div class="monogram"><strong>AT</strong></div>
+          <div class="art-label"><b>Design · Edit · Build</b>Creative work, with intention.</div>
+        </div>
+      </div>
+      <div class="scroll-hint">Scroll to explore</div>
+    </section>
+
+    <section id="about">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div><div class="eyebrow">01 / A little introduction</div><h2>Design with<br><span class="gold">a point of view.</span></h2></div>
+          <p class="section-intro">A creative practice built around curiosity, clarity and the details that make digital experiences memorable.</p>
+        </div>
+        <div class="about-grid">
+          <div class="about-statement reveal-left">I turn ideas into <em>visual experiences</em> that feel clear, considered and distinctive.</div>
+          <div class="reveal">
+            <p class="about-text">I'm Abhinandan Tiwari, a creative designer and digital creator interested in graphic design, video editing and website creation. I enjoy exploring ideas, shaping visual stories and learning new ways to make digital work more engaging.</p>
+            <p class="about-text">This portfolio is a selection of my creative direction and practice. Project visuals and details can be updated as new work is added.</p>
+            <div class="eyebrow" style="margin-top:28px">Tools I work with</div>
+            <div class="tool-list">
+              <span class="chip">Photoshop</span><span class="chip">Photopea</span><span class="chip">Canva</span><span class="chip">CapCut</span><span class="chip">FlipaClip</span><span class="chip">ibisPaint X</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div><div class="eyebrow">02 / What I do</div><h2>Creative skills.<br><span class="gold">Digital thinking.</span></h2></div>
+          <p class="section-intro">From the first visual idea to the final screen, I focus on making every element feel intentional.</p>
+        </div>
+        <div class="services">
+          <article class="service reveal"><span class="service-num">01 — VISUALS</span><span class="service-icon">✳</span><h3>Graphic Design</h3><p>Posters, social media creatives, branding concepts and visual layouts with a clear style.</p></article>
+          <article class="service reveal"><span class="service-num">02 — MOTION</span><span class="service-icon">↗</span><h3>Video Editing</h3><p>Short-form edits, pacing, transitions and visual storytelling for digital content.</p></article>
+          <article class="service reveal"><span class="service-num">03 — DIGITAL</span><span class="service-icon">⌘</span><h3>Website Creation</h3><p>Modern, responsive website layouts designed to present brands and ideas online.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div><div class="eyebrow">03 / Selected work</div><h2>Ideas made<br><span class="gold">visible.</span></h2></div>
+          <p class="section-intro">A few project categories to start with. Replace these concept covers with your real designs, edits and live website screenshots.</p>
+        </div>
+        <div class="work-grid">
+          <article class="project reveal"><div class="project-visual visual-one"><div class="visual-word">FORM<br> & FEEL<small>BRAND / GRAPHIC DESIGN</small></div></div><div class="project-info"><div><h3>Brand & Graphic Concepts</h3><p>Visual identity · Poster design</p></div><span class="project-arrow">↗</span></div></article>
+          <article class="project reveal"><div class="project-visual visual-two"><div class="visual-word">FRAME<br>BY FRAME<small>VIDEO / MOTION</small></div></div><div class="project-info"><div><h3>Video Editing Projects</h3><p>Short-form · Social content</p></div><span class="project-arrow">↗</span></div></article>
+          <article class="project reveal"><div class="project-visual visual-three"><div class="visual-word">DIGITAL<br>CRAFT<small>WEB / EXPERIENCE</small></div></div><div class="project-info"><div><h3>Website Designs</h3><p>Landing pages · Responsive layouts</p></div><span class="project-arrow">↗</span></div></article>
+          <article class="project reveal"><div class="project-visual visual-four"><div class="visual-word">VISUAL<br>STORIES<small>CREATIVE EXPERIMENTS</small></div></div><div class="project-info"><div><h3>Creative Experiments</h3><p>Illustration · Digital art</p></div><span class="project-arrow">↗</span></div></article>
+        </div>
+        <p class="note">Note: These are editable showcase placeholders, not claims of completed client projects. Replace them with your own work before sharing the portfolio professionally.</p>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div><div class="eyebrow">04 / How I approach it</div><h2>From thought<br>to <span class="gold">finish.</span></h2></div>
+          <p class="section-intro">A simple process keeps the work focused and makes collaboration easier.</p>
+        </div>
+        <div class="process-grid">
+          <div class="process reveal"><span>01 / DISCOVER</span><h3>Understand</h3><p>Get clear on the goal, audience and direction.</p></div>
+          <div class="process reveal"><span>02 / EXPLORE</span><h3>Concept</h3><p>Explore references, ideas and visual possibilities.</p></div>
+          <div class="process reveal"><span>03 / CREATE</span><h3>Build</h3><p>Develop the design, edit or website with care.</p></div>
+          <div class="process reveal"><span>04 / REFINE</span><h3>Deliver</h3><p>Polish details and prepare the final result.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <div class="contact-panel reveal">
+          <div class="eyebrow">05 / Start a conversation</div>
+          <h2>Have an idea?<br><span class="gold">Let's make it real.</span></h2>
+          <div class="contact-bottom">
+            <p>For design, editing and website enquiries, reach out.</p>
+            <!-- Replace the email below with your real email address. -->
+            <a class="btn btn-primary" href="mailto:YOUR_EMAIL@example.com">Email me ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <span>© <span id="year"></span> Abhinandan Tiwari. All rights reserved.</span>
+      <span>Designed with intention <span class="gold">✳</span></span>
+      <a href="#home">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile navigation
+    const menuBtn = document.getElementById('menuBtn');
+    const navlinks = document.getElementById('navlinks');
+    menuBtn.addEventListener('click', () => navlinks.classList.toggle('open'));
+    navlinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => navlinks.classList.remove('open')));
+
+    // Header + page scroll progress
+    const topbar = document.getElementById('topbar');
+    const progress = document.getElementById('progress');
+    const onScroll = () => {
+      topbar.classList.toggle('scrolled', window.scrollY > 20);
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      progress.style.width = (max > 0 ? window.scrollY / max * 100 : 0) + '%';
+    };
+    window.addEventListener('scroll', onScroll, { passive:true });
+    onScroll();
+
+    // Scroll reveal animation (works without any external animation library)
+    const revealItems = document.querySelectorAll('.reveal, .reveal-left');
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold:0.12, rootMargin:'0px 0px -35px 0px' });
+      revealItems.forEach(item => observer.observe(item));
+    } else {
+      revealItems.forEach(item => item.classList.add('visible'));
+    }
+
+    // Subtle parallax on the hero artwork, disabled for reduced-motion users.
+    const heroArt = document.querySelector('.hero-art');
+    if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches && window.innerWidth > 800) {
+      window.addEventListener('scroll', () => {
+        const y = Math.min(window.scrollY * 0.08, 55);
+        heroArt.style.transform = `translateY(${y}px)`;
+      }, { passive:true });
+    }
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
